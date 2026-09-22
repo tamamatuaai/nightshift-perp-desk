@@ -6,7 +6,7 @@ Faceless desk tools for perpetual-futures math. Tools not tips. No signals, coin
 
 Use the free liquidation calculator:
 
-https://whop.com/biz_MtgnJYIShE4HzT/nsp-perp-liq-calc-20260922-1
+https://whop.com/biz_MtgnJYIShE4HzT/nsp-liq-calc-get-access
 
 Hypothetical examples only. NOT FINANCIAL ADVICE. We do not place trades.
 
