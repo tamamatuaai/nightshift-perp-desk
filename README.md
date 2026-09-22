@@ -1,29 +1,25 @@
 # Nightshift Press — perp desk tools
 
-One-file HTML tools. Open in a browser. No app. No Discord. Not signals.
+Faceless desk tools for perpetual-futures math. Tools not tips. No signals, coin calls, or fake sales.
 
-## Free file
+## Free / primary
 
-**Perp liquidation calculator** — type leverage, watch liquidation move.
+Use the free liquidation calculator:
 
-→ https://whop.com/biz_MtgnJYIShE4HzT/nsp-perp-liq-calc-20260922-1
+https://whop.com/biz_MtgnJYIShE4HzT/nsp-perp-liq-calc-20260922-1
 
-Hypothetical Asset X examples only. Not financial advice. Leverage can wipe an account. We do not place trades.
+Hypothetical examples only. NOT FINANCIAL ADVICE. We do not place trades.
 
-## Paid
+## Store
 
-- Daily Drop $19/mo — new desk file each UTC day  
-  https://whop.com/biz_MtgnJYIShE4HzT/nsp-perp-desk-drop-20260922-1
-- Perp Desk Kit $149 one-time — size + liq + journal + checklist + fees  
-  https://whop.com/biz_MtgnJYIShE4HzT/nsp-perp-desk-kit-20260922-1
+https://whop.com/biz_MtgnJYIShE4HzT
 
-Store: https://whop.com/biz_MtgnJYIShE4HzT
+- Drop — $19/mo: https://whop.com/biz_MtgnJYIShE4HzT/nsp-perp-desk-drop-20260922-1
+- Kit — $149: https://whop.com/biz_MtgnJYIShE4HzT/nsp-perp-desk-kit-20260922-1
 
-## What this is
+## About
 
-Desk math for perpetual futures: position size, liquidation, journals, checklists.
-Not a signal room. Not a course. Pay once or subscribe to the drop.
+Nightshift Press
+Account/biz: biz_MtgnJYIShE4HzT
 
-## Pages
-
-Open `index.html` in this repo or use GitHub Pages on this repository (Settings → Pages → Deploy from branch `main` / root).
+X: https://x.com/Too_Tufff
