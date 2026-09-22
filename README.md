@@ -21,5 +21,3 @@ https://whop.com/biz_MtgnJYIShE4HzT
 
 Nightshift Press
 Account/biz: biz_MtgnJYIShE4HzT
-
-X: https://x.com/Too_Tufff
