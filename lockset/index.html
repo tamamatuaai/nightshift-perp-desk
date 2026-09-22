@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LOCKSET — privacy job router</title>
+  <meta name="description" content="One desk for crypto privacy jobs. We route to official products. We do not hold keys. Not financial advice.">
+  <style>
+    :root { color-scheme: dark; --bg:#0b0d10; --ink:#e8eaed; --mute:#8b9098; --line:#1c2128; --accent:#f97316; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, sans-serif; background:var(--bg); color:var(--ink); }
+    main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    .tag { font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--mute); }
+    h1 { font-size:1.7rem; letter-spacing:-.03em; margin:.35rem 0 .6rem; }
+    p { line-height:1.55; color:#c5c9d0; }
+    .legal { font-size:.78rem; color:var(--mute); border:1px solid var(--line); padding:.8rem 1rem; margin:1.2rem 0 1.6rem; }
+    .jobs { display:grid; grid-template-columns:1fr 1fr; gap:.5rem; margin:1rem 0 1.6rem; }
+    @media (max-width:640px){ .jobs { grid-template-columns:1fr; } }
+    button.job { background:#12161b; color:var(--ink); border:1px solid var(--line); text-align:left; padding:.75rem .85rem; cursor:pointer; font:inherit; }
+    button.job:hover, button.job.on { border-color:var(--accent); }
+    button.job small { display:block; color:var(--mute); font-size:.75rem; margin-top:.2rem; }
+    table { width:100%; border-collapse:collapse; font-size:.85rem; }
+    th, td { border-bottom:1px solid var(--line); padding:.55rem .4rem; text-align:left; vertical-align:top; }
+    th { color:var(--mute); font-weight:550; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; }
+    a { color:var(--accent); text-decoration:none; }
+    .chip { font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--mute); }
+    .fine { font-size:.78rem; color:var(--mute); margin-top:1.6rem; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="tag">Nightshift Press · LOCKSET</div>
+  <h1>What do you want private?</h1>
+  <p>One desk. Official URLs only. We route. We do not hold keys. We do not run a mixer.</p>
+  <div class="legal">Not financial advice. Not legal advice. Privacy tools are legal to discuss. Using them to move criminal proceeds or evade sanctions is not. You are responsible for your jurisdiction. Destination sites are not us.</div>
+  <div class="jobs" id="jobs"></div>
+  <table>
+    <thead><tr><th>Product</th><th>Job</th><th>Hides</th><th>Official</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="fine">Empty fields beat a fake inbox. Tornado Cash and sanctioned protocols are not routes. PulseChain pStables float; they are not a dollar.</p>
+  <p class="fine"><a href="https://whop.com/biz_MtgnJYIShE4HzT">Nightshift Press store</a> · <a href="https://github.com/tamamatuaai/nightshift-perp-desk">Source</a></p>
+</main>
+<script>
+const ROUTES = [
+  {job:"amounts", name:"Railgun", hides:"sender / receiver / amount (shielded)", url:"https://railgun.org", note:"Shielded balances. Self-custody."},
+  {job:"receive", name:"Umbra", hides:"receiver mapping", url:"https://app.umbra.cash", note:"Stealth addresses."},
+  {job:"compute", name:"Zama", hides:"data in compute", url:"https://www.zama.ai", note:"FHE / confidential tokens."},
+  {job:"pool", name:"Privacy Pools", hides:"association outside a set", url:"https://privacypools.com", note:"Association-set privacy. Compliance-aware."},
+  {job:"stables", name:"Aleo", hides:"stable amounts", url:"https://aleo.org", note:"Private-by-default network / stables."},
+  {job:"stables", name:"Hinkal", hides:"stable transfer details", url:"https://hinkal.pro", note:"Confidential stable rails."},
+  {job:"l2", name:"Aztec", hides:"L2 activity", url:"https://aztec.network", note:"Private L2."},
+  {job:"coin", name:"Monero", hides:"sender / receiver / amount", url:"https://www.getmonero.org", note:"Default-private money. Official site only."},
+  {job:"coin", name:"Zcash + Zashi", hides:"shielded send", url:"https://z.cash", note:"Use shielded path."},
+  {job:"chat", name:"Session", hides:"message metadata (best-effort)", url:"https://getsession.org", note:"Private messaging."},
+  {job:"net", name:"Mullvad", hides:"network path", url:"https://mullvad.net", note:"VPN. Not a mixer."},
+  {job:"pulse", name:"Liberty Swap", hides:"n/a — hop / swap", url:"https://libertyswap.finance", note:"PulseChain hop. Market risk."},
+  {job:"pulse", name:"pDAI explainer", hides:"n/a — asset page", url:"https://pdai.net", note:"Copied balance. Price floats. Not $1."}
+];
+const JOBS = [
+  ["amounts","Hide amounts"],
+  ["receive","Fresh receive address"],
+  ["stables","Private stables"],
+  ["pool","Compliance-aware pool"],
+  ["l2","Private L2 / DeFi"],
+  ["coin","Default-private money"],
+  ["chat","Private messages"],
+  ["net","Network privacy"],
+  ["pulse","PulseChain / pStables"],
+  ["compute","Confidential compute"]
+];
+const jobsEl = document.getElementById('jobs');
+const rowsEl = document.getElementById('rows');
+let on = null;
+function render(filter){
+  rowsEl.innerHTML = ROUTES.filter(r => !filter || r.job===filter).map(r =>
+    `<tr><td>${r.name}<div class="chip">${r.note}</div></td><td>${r.job}</td><td>${r.hides}</td><td><a href="${r.url}" target="_blank" rel="noopener">official</a></td></tr>`
+  ).join('') || `<tr><td colspan="4">Empty on purpose.</td></tr>`;
+}
+JOBS.forEach(([id,label]) => {
+  const b = document.createElement('button');
+  b.className = 'job';
+  b.innerHTML = `${label}<small>${id}</small>`;
+  b.onclick = () => { on = on===id ? null : id; [...jobsEl.children].forEach(x => x.classList.toggle('on', x===b && on)); render(on); };
+  jobsEl.appendChild(b);
+});
+render(null);
+</script>
+</body>
+</html>
