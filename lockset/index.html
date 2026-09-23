@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LOCKSET — Nightshift Press</title>
+<meta name="description" content="Ask what you want private. Route to official public products. No pool. No custody.">
+<style>
+  :root {
+    --bg: #0b0d10;
+    --fg: #e8eaed;
+    --muted: #9aa3ad;
+    --line: #1c2229;
+    --card: #12161b;
+    --accent: #f97316;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.45 ui-sans-serif, system-ui, sans-serif; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  header, main, footer { max-width: 980px; margin: 0 auto; padding: 28px 20px; }
+  header h1 { font-size: 22px; letter-spacing: .08em; font-weight: 650; margin: 0 0 6px; }
+  header p, .legal { color: var(--muted); }
+  .kicker { color: var(--accent); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+  .switch { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 28px; }
+  .switch button {
+    background: var(--card); color: var(--fg); border: 1px solid var(--line);
+    padding: 8px 12px; cursor: pointer; font: inherit;
+  }
+  .switch button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .card { background: var(--card); border: 1px solid var(--line); padding: 16px 16px 14px; min-height: 168px; }
+  .card h3 { margin: 0 0 6px; font-size: 15px; }
+  .card p { margin: 0 0 12px; color: var(--muted); font-size: 13px; }
+  .card .meta { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .empty { opacity: .55; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; }
+  th, td { border-bottom: 1px solid var(--line); text-align: left; padding: 8px 6px; vertical-align: top; }
+  th { color: var(--muted); font-weight: 550; }
+  .nr { color: var(--muted); }
+  section { margin: 36px 0; }
+  h2 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 550; }
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Nightshift Press · LOCKSET</div>
+  <h1>What do you want private?</h1>
+  <p>One desk. Official public products only. We do not run a pool, hold keys, or take custody. Money here is affiliate / featured / compare — slots stay empty until an operator pastes them.</p>
+</header>
+<main>
+  <div class="switch" role="tablist" aria-label="Intent">
+    <button type="button" data-intent="all" aria-pressed="true">All</button>
+    <button type="button" data-intent="shielded_transfer">Shielded transfer</button>
+    <button type="button" data-intent="private_message">Private message</button>
+    <button type="button" data-intent="network_path">Network path</button>
+    <button type="button" data-intent="hardware_keys">Hardware keys</button>
+    <button type="button" data-intent="market_rail">Market rail</button>
+  </div>
+  <section>
+    <h2>Routes</h2>
+    <div class="grid" id="cards"></div>
+  </section>
+  <section>
+    <h2>Compare</h2>
+    <table>
+      <thead>
+        <tr><th>Need</th><th>Official route</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Shielded EVM notes</td><td><a href="https://railgun.org/" rel="noopener">railgun.org</a> · <a href="https://railway.xyz/" rel="noopener">railway.xyz</a></td><td>ROUTED</td></tr>
+        <tr><td>Stealth receive on EVM</td><td><a href="https://app.umbra.cash/" rel="noopener">app.umbra.cash</a></td><td>ROUTED</td></tr>
+        <tr><td>FHE compute</td><td><a href="https://www.zama.ai/" rel="noopener">zama.ai</a></td><td>ROUTED</td></tr>
+        <tr><td>Association-set privacy pool</td><td><a href="https://docs.privacypools.com/" rel="noopener">docs.privacypools.com</a> · <a href="https://0xbow.io/" rel="noopener">0xbow.io</a></td><td>ROUTED</td></tr>
+        <tr><td>Private L2 / programmable privacy</td><td><a href="https://aztec.network/" rel="noopener">aztec.network</a></td><td>ROUTED</td></tr>
+        <tr><td>Private stables / L1 privacy VM</td><td><a href="https://www.aleo.org/" rel="noopener">aleo.org</a></td><td>ROUTED</td></tr>
+        <tr><td>Compliant private send</td><td><a href="https://hinkal.pro/" rel="noopener">hinkal.pro</a></td><td>ROUTED</td></tr>
+        <tr><td>Shielded L1 money</td><td><a href="https://z.cash/" rel="noopener">z.cash</a> · <a href="https://electriccoin.co/zashi/" rel="noopener">Zashi (ECC)</a></td><td>ROUTED</td></tr>
+        <tr><td>Default-private L1</td><td><a href="https://www.getmonero.org/" rel="noopener">getmonero.org</a></td><td>ROUTED</td></tr>
+        <tr><td>Private chat</td><td><a href="https://getsession.org/" rel="noopener">getsession.org</a> · <a href="https://simplex.chat/" rel="noopener">simplex.chat</a></td><td>ROUTED</td></tr>
+        <tr><td>VPN path</td><td><a href="https://mullvad.net/" rel="noopener">mullvad.net</a> · <a href="https://www.ivpn.net/" rel="noopener">ivpn.net</a></td><td>ROUTED</td></tr>
+        <tr><td>Non-custodial swap docs</td><td><a href="https://docs.libertyswap.finance/" rel="noopener">docs.libertyswap.finance</a></td><td>ROUTED</td></tr>
+        <tr><td>PulseChain pDAI / pUSDC</td><td><a href="https://pulsechain.com/" rel="noopener">pulsechain.com</a></td><td>MARKET RAIL — not a dollar</td></tr>
+        <tr><td>Keys offline</td><td><a href="https://www.ledger.com/" rel="noopener">ledger.com</a> · <a href="https://trezor.io/" rel="noopener">trezor.io</a></td><td>ROUTED</td></tr>
+        <tr><td>Tornado Cash / mixer forks</td><td class="nr">—</td><td class="nr">NOT ROUTED</td></tr>
+        <tr class="empty"><td>Featured slot</td><td>—</td><td>EMPTY ON PURPOSE</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+<footer class="legal">
+  NFA. Not legal advice. Privacy tools are legal to discuss. Using them to move criminal proceeds is not.
+  Nightshift Press does not custody funds, store seed phrases, or operate a mixer.
+  featured_url and affiliate params are empty until pasted by the operator.
+</footer>
+<script>
+const ROUTES = [
+  { intent: "shielded_transfer", name: "RAILGUN", note: "On-chain shielded notes on public EVM chains.", url: "https://railgun.org/", host: "railgun.org" },
+  { intent: "shielded_transfer", name: "Railway Wallet", note: "Independent RAILGUN frontend. Official listing on railgun.org/wallets.", url: "https://railway.xyz/", host: "railway.xyz" },
+  { intent: "shielded_transfer", name: "Umbra", note: "Stealth-address receive on EVM.", url: "https://app.umbra.cash/", host: "app.umbra.cash" },
+  { intent: "shielded_transfer", name: "Zama FHE", note: "Fully homomorphic encryption research and products.", url: "https://www.zama.ai/", host: "zama.ai" },
+  { intent: "shielded_transfer", name: "Privacy Pools", note: "Association-set privacy. Docs + 0xbow public site.", url: "https://docs.privacypools.com/", host: "docs.privacypools.com" },
+  { intent: "shielded_transfer", name: "Aztec", note: "Privacy-native L2. Official network site.", url: "https://aztec.network/", host: "aztec.network" },
+  { intent: "shielded_transfer", name: "Aleo", note: "Private application layer / private stables research.", url: "https://www.aleo.org/", host: "aleo.org" },
+  { intent: "shielded_transfer", name: "Hinkal", note: "Private send with screening + viewing keys. Not a mixer.", url: "https://hinkal.pro/", host: "hinkal.pro" },
+  { intent: "shielded_transfer", name: "Zcash + Zashi", note: "Shielded L1 money. Wallet by Electric Coin Co.", url: "https://z.cash/", host: "z.cash" },
+  { intent: "shielded_transfer", name: "Monero", note: "Official project site only.", url: "https://www.getmonero.org/", host: "getmonero.org" },
+  { intent: "private_message", name: "Session", note: "Account-light messenger.", url: "https://getsession.org/", host: "getsession.org" },
+  { intent: "private_message", name: "SimpleX", note: "No user IDs. Official client site.", url: "https://simplex.chat/", host: "simplex.chat" },
+  { intent: "network_path", name: "Mullvad", note: "VPN. Official site.", url: "https://mullvad.net/", host: "mullvad.net" },
+  { intent: "network_path", name: "IVPN", note: "VPN. Official site.", url: "https://www.ivpn.net/", host: "ivpn.net" },
+  { intent: "market_rail", name: "Liberty Swap docs", note: "Official docs only. Non-custodial protocol writeup.", url: "https://docs.libertyswap.finance/", host: "docs.libertyswap.finance" },
+  { intent: "market_rail", name: "PulseChain pDAI / pUSDC", note: "Market rail. Not a dollar. Not a Nightshift product.", url: "https://pulsechain.com/", host: "pulsechain.com" },
+  { intent: "hardware_keys", name: "Ledger", note: "Official hardware site. We do not sell devices.", url: "https://www.ledger.com/", host: "ledger.com" },
+  { intent: "hardware_keys", name: "Trezor", note: "Official hardware site. We do not sell devices.", url: "https://trezor.io/", host: "trezor.io" }
+];
+const box = document.getElementById("cards");
+function draw(intent) {
+  const list = intent === "all" ? ROUTES : ROUTES.filter(r => r.intent === intent);
+  box.innerHTML = list.map(r => `
+    <article class="card" data-intent="${r.intent}">
+      <div class="meta">${r.intent.replace("_", " ")}</div>
+      <h3>${r.name}</h3>
+      <p>${r.note}</p>
+      <a href="${r.url}" rel="noopener">${r.host}</a>
+    </article>`).join("");
+}
+draw("all");
+document.querySelectorAll(".switch button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".switch button").forEach(b => b.setAttribute("aria-pressed", "false"));
+    btn.setAttribute("aria-pressed", "true");
+    draw(btn.dataset.intent);
+  });
+});
+</script>
+</body>
+</html>
