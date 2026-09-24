@@ -40,68 +40,86 @@
   .nr { color: var(--muted); }
   section { margin: 36px 0; }
   h2 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 550; }
+  .feat { border: 1px dashed var(--line); padding: 14px 16px; color: var(--muted); font-size: 13px; }
 </style>
 </head>
 <body>
 <header>
   <div class="kicker">Nightshift Press · LOCKSET</div>
   <h1>What do you want private?</h1>
-  <p>One desk. Official public products only. We do not run a pool, hold keys, or take custody. Money here is affiliate / featured / compare — slots stay empty until an operator pastes them.</p>
+  <p>One desk. Official public products only. We do not run a pool, hold keys, or take custody. Money here is affiliate / featured / compare — not a mixer we operate.</p>
 </header>
 <main>
-  <div class="switch" role="tablist" aria-label="Intent">
-    <button type="button" data-intent="all" aria-pressed="true">All</button>
-    <button type="button" data-intent="shielded_transfer">Shielded transfer</button>
-    <button type="button" data-intent="private_message">Private message</button>
-    <button type="button" data-intent="network_path">Network path</button>
-    <button type="button" data-intent="hardware_keys">Hardware keys</button>
-    <button type="button" data-intent="market_rail">Market rail</button>
-  </div>
   <section>
-    <h2>Routes</h2>
-    <div class="grid" id="cards"></div>
+    <h2>Intent</h2>
+    <div class="switch" role="tablist" aria-label="Privacy intent">
+      <button type="button" data-intent="all" aria-pressed="true">All</button>
+      <button type="button" data-intent="shielded_transfer">Shielded transfer</button>
+      <button type="button" data-intent="private_message">Private message</button>
+      <button type="button" data-intent="network_path">Network path</button>
+      <button type="button" data-intent="hardware_keys">Hardware keys</button>
+      <button type="button" data-intent="market_rail">Market rail</button>
+    </div>
+    <div id="featured" class="feat empty">Featured slot empty on purpose. Affiliate params empty until pasted.</div>
+    <div id="cards" class="grid" style="margin-top:16px"></div>
   </section>
   <section>
     <h2>Compare</h2>
     <table>
       <thead>
-        <tr><th>Need</th><th>Official route</th><th>Status</th></tr>
+        <tr>
+          <th>Question</th>
+          <th>Routed?</th>
+          <th>Where</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td>Shielded EVM notes</td><td><a href="https://railgun.org/" rel="noopener">railgun.org</a> · <a href="https://railway.xyz/" rel="noopener">railway.xyz</a></td><td>ROUTED</td></tr>
-        <tr><td>Stealth receive on EVM</td><td><a href="https://app.umbra.cash/" rel="noopener">app.umbra.cash</a></td><td>ROUTED</td></tr>
-        <tr><td>FHE compute</td><td><a href="https://www.zama.ai/" rel="noopener">zama.ai</a></td><td>ROUTED</td></tr>
-        <tr><td>Association-set privacy pool</td><td><a href="https://docs.privacypools.com/" rel="noopener">docs.privacypools.com</a> · <a href="https://0xbow.io/" rel="noopener">0xbow.io</a></td><td>ROUTED</td></tr>
-        <tr><td>Private L2 / programmable privacy</td><td><a href="https://aztec.network/" rel="noopener">aztec.network</a></td><td>ROUTED</td></tr>
-        <tr><td>Private stables / L1 privacy VM</td><td><a href="https://www.aleo.org/" rel="noopener">aleo.org</a></td><td>ROUTED</td></tr>
-        <tr><td>Compliant private send</td><td><a href="https://hinkal.pro/" rel="noopener">hinkal.pro</a></td><td>ROUTED</td></tr>
-        <tr><td>Shielded L1 money</td><td><a href="https://z.cash/" rel="noopener">z.cash</a> · <a href="https://electriccoin.co/zashi/" rel="noopener">Zashi (ECC)</a></td><td>ROUTED</td></tr>
-        <tr><td>Default-private L1</td><td><a href="https://www.getmonero.org/" rel="noopener">getmonero.org</a></td><td>ROUTED</td></tr>
-        <tr><td>Private chat</td><td><a href="https://getsession.org/" rel="noopener">getsession.org</a> · <a href="https://simplex.chat/" rel="noopener">simplex.chat</a></td><td>ROUTED</td></tr>
-        <tr><td>VPN path</td><td><a href="https://mullvad.net/" rel="noopener">mullvad.net</a> · <a href="https://www.ivpn.net/" rel="noopener">ivpn.net</a></td><td>ROUTED</td></tr>
-        <tr><td>Non-custodial swap docs</td><td><a href="https://docs.libertyswap.finance/" rel="noopener">docs.libertyswap.finance</a></td><td>ROUTED</td></tr>
-        <tr><td>PulseChain pDAI / pUSDC</td><td><a href="https://pulsechain.com/" rel="noopener">pulsechain.com</a></td><td>MARKET RAIL — not a dollar</td></tr>
-        <tr><td>Keys offline</td><td><a href="https://www.ledger.com/" rel="noopener">ledger.com</a> · <a href="https://trezor.io/" rel="noopener">trezor.io</a></td><td>ROUTED</td></tr>
-        <tr><td>Tornado Cash / mixer forks</td><td class="nr">—</td><td class="nr">NOT ROUTED</td></tr>
-        <tr class="empty"><td>Featured slot</td><td>—</td><td>EMPTY ON PURPOSE</td></tr>
+        <tr>
+          <td>Shield a transfer on an existing public protocol</td>
+          <td>Yes</td>
+          <td>RAILGUN, Railway Wallet, Umbra, Zama FHE, Privacy Pools, Aztec, Aleo, Hinkal, Zcash + Zashi, Monero</td>
+        </tr>
+        <tr>
+          <td>Keep a conversation off a phone-number graph</td>
+          <td>Yes</td>
+          <td>Session, SimpleX</td>
+        </tr>
+        <tr>
+          <td>Hide the path, not the payload</td>
+          <td>Yes</td>
+          <td>Mullvad, IVPN</td>
+        </tr>
+        <tr>
+          <td>Hold keys offline</td>
+          <td>Yes</td>
+          <td>Ledger, Trezor — official sites only</td>
+        </tr>
+        <tr>
+          <td>Market rail / wrapped units</td>
+          <td>Yes</td>
+          <td>Liberty Swap official docs; PulseChain pDAI/pUSDC as a market rail, not a dollar</td>
+        </tr>
+        <tr>
+          <td>Tornado Cash or mixer forks</td>
+          <td class="nr">NOT ROUTED</td>
+          <td class="nr">Comparison row only. No go-mix button. No fork list.</td>
+        </tr>
       </tbody>
     </table>
   </section>
 </main>
-<footer class="legal">
-  NFA. Not legal advice. Privacy tools are legal to discuss. Using them to move criminal proceeds is not.
-  Nightshift Press does not custody funds, store seed phrases, or operate a mixer.
-  featured_url and affiliate params are empty until pasted by the operator.
+<footer>
+  <p class="legal">NFA. Not legal advice. Privacy tools are legal to discuss. Using them to move criminal proceeds is not. Nightshift Press does not take custody, store seed phrases, or operate a mixing pool. Official URLs only. Unverified destinations stay empty on purpose.</p>
 </footer>
 <script>
 const ROUTES = [
-  { intent: "shielded_transfer", name: "RAILGUN", note: "On-chain shielded notes on public EVM chains.", url: "https://railgun.org/", host: "railgun.org" },
-  { intent: "shielded_transfer", name: "Railway Wallet", note: "Independent RAILGUN frontend. Official listing on railgun.org/wallets.", url: "https://railway.xyz/", host: "railway.xyz" },
-  { intent: "shielded_transfer", name: "Umbra", note: "Stealth-address receive on EVM.", url: "https://app.umbra.cash/", host: "app.umbra.cash" },
-  { intent: "shielded_transfer", name: "Zama FHE", note: "Fully homomorphic encryption research and products.", url: "https://www.zama.ai/", host: "zama.ai" },
-  { intent: "shielded_transfer", name: "Privacy Pools", note: "Association-set privacy. Docs + 0xbow public site.", url: "https://docs.privacypools.com/", host: "docs.privacypools.com" },
-  { intent: "shielded_transfer", name: "Aztec", note: "Privacy-native L2. Official network site.", url: "https://aztec.network/", host: "aztec.network" },
-  { intent: "shielded_transfer", name: "Aleo", note: "Private application layer / private stables research.", url: "https://www.aleo.org/", host: "aleo.org" },
+  { intent: "shielded_transfer", name: "RAILGUN", note: "On-chain ZK privacy system. Protocol site. Not a Nightshift pool.", url: "https://railgun.org/", host: "railgun.org" },
+  { intent: "shielded_transfer", name: "Railway Wallet", note: "Independent RAILGUN-integrated wallet. Official project site.", url: "https://railway.xyz/", host: "railway.xyz" },
+  { intent: "shielded_transfer", name: "Umbra", note: "Stealth-address sends on public EVM rails.", url: "https://app.umbra.cash/", host: "app.umbra.cash" },
+  { intent: "shielded_transfer", name: "Zama FHE", note: "Fully homomorphic encryption research + products.", url: "https://www.zama.ai/", host: "zama.ai" },
+  { intent: "shielded_transfer", name: "Privacy Pools", note: "Association-set privacy. Official project site.", url: "https://privacypools.com/", host: "privacypools.com" },
+  { intent: "shielded_transfer", name: "Aztec", note: "Private execution network. Official site.", url: "https://aztec.network/", host: "aztec.network" },
+  { intent: "shielded_transfer", name: "Aleo", note: "Private application network. Official site.", url: "https://www.aleo.org/", host: "aleo.org" },
   { intent: "shielded_transfer", name: "Hinkal", note: "Private send with screening + viewing keys. Not a mixer.", url: "https://hinkal.pro/", host: "hinkal.pro" },
   { intent: "shielded_transfer", name: "Zcash + Zashi", note: "Shielded L1 money. Wallet by Electric Coin Co.", url: "https://z.cash/", host: "z.cash" },
   { intent: "shielded_transfer", name: "Monero", note: "Official project site only.", url: "https://www.getmonero.org/", host: "getmonero.org" },
