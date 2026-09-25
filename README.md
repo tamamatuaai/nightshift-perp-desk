@@ -4,7 +4,11 @@ Faceless desk tools for perpetual-futures math. Tools not tips. No signals, coin
 
 ## Free / primary
 
-Use the free liquidation calculator:
+Locked pack route:
+
+https://whop.com/biz_MtgnJYIShE4HzT/nsp-perp-liq-calc-20260922-1
+
+Visible twin (same file family):
 
 https://whop.com/biz_MtgnJYIShE4HzT/nsp-liq-calc-get-access
 
@@ -14,8 +18,8 @@ Hypothetical examples only. NOT FINANCIAL ADVICE. We do not place trades.
 
 https://whop.com/biz_MtgnJYIShE4HzT
 
-- Drop — $19/mo (promo OFF by default)
-- Kit — limited
+- Drop — https://whop.com/biz_MtgnJYIShE4HzT/nsp-perp-desk-drop-20260922-1
+- Kit — https://whop.com/biz_MtgnJYIShE4HzT/nsp-perp-desk-kit-20260922-1
 
 ## Lockset (router, not mixer)
 
@@ -31,4 +35,4 @@ Listed / submitting on [Twelve Tools](https://twelve.tools) (free tier).
 
 Nightshift Press  
 Account/biz: biz_MtgnJYIShE4HzT  
-X: @NightshiftPress only — never personal handles
+X: brand account only — never personal handles
