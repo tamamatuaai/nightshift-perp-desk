@@ -133,11 +133,12 @@ const ROUTES = [
   { intent: "hardware_keys", name: "Trezor", note: "Official hardware site. We do not sell devices.", url: "https://trezor.io/", host: "trezor.io" }
 ];
 const box = document.getElementById("cards");
+function label(intent) { return intent.replaceAll("_", " "); }
 function draw(intent) {
   const list = intent === "all" ? ROUTES : ROUTES.filter(r => r.intent === intent);
   box.innerHTML = list.map(r => `
     <article class="card" data-intent="${r.intent}">
-      <div class="meta">${r.intent.replace("_", " ")}</div>
+      <div class="meta">${label(r.intent)}</div>
       <h3>${r.name}</h3>
       <p>${r.note}</p>
       <a href="${r.url}" rel="noopener">${r.host}</a>
