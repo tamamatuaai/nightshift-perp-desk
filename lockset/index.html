@@ -41,11 +41,12 @@
   section { margin: 36px 0; }
   h2 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 550; }
   .feat { border: 1px dashed var(--line); padding: 14px 16px; color: var(--muted); font-size: 13px; }
+  .count { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 10px 0 0; }
 </style>
 </head>
 <body>
 <header>
-  <div class="kicker">Nightshift Press · LOCKSET</div>
+  <div class="kicker">Nightshift Press · LOCKSET · 27 Sep 2026</div>
   <h1>What do you want private?</h1>
   <p>One desk. Official public products only. We do not run a pool, hold keys, or take custody. Money here is affiliate / featured / compare — not a mixer we operate.</p>
 </header>
@@ -61,6 +62,7 @@
       <button type="button" data-intent="market_rail">Market rail</button>
     </div>
     <div id="featured" class="feat empty">Featured slot empty on purpose. Affiliate params empty until pasted.</div>
+    <p id="count" class="count"></p>
     <div id="cards" class="grid" style="margin-top:16px"></div>
   </section>
   <section>
@@ -134,9 +136,11 @@ const ROUTES = [
   { intent: "hardware_keys", name: "Trezor", note: "Official hardware site. We do not sell devices.", url: "https://trezor.io/", host: "trezor.io" }
 ];
 const box = document.getElementById("cards");
+const countEl = document.getElementById("count");
 function label(intent) { return intent.replaceAll("_", " "); }
 function draw(intent) {
   const list = intent === "all" ? ROUTES : ROUTES.filter(r => r.intent === intent);
+  countEl.textContent = list.length + " official routes · mixer routes 0";
   box.innerHTML = list.map(r => `
     <article class="card" data-intent="${r.intent}">
       <div class="meta">${label(r.intent)}</div>
