@@ -1,7 +1,7 @@
 {
   "product": "LOCKSET",
   "brand": "Nightshift Press",
-  "version": "2026-10-01",
+  "version": "2026-10-02",
   "featured_url": "",
   "affiliate_params": "",
   "mixer_routes": 0,
@@ -9,5 +9,6 @@
   "github_router": "https://github.com/tamamatuaai/nightshift-perp-desk/blob/main/lockset/index.html",
   "intents": ["shielded_transfer", "private_message", "network_path", "hardware_keys", "market_rail"],
   "cards_filled": 19,
-  "empty_on_purpose": ["featured_url", "affiliate_params"]
+  "empty_on_purpose": ["featured_url", "affiliate_params"],
+  "refreshed": "2026-10-02"
 }
