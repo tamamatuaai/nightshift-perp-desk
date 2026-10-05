@@ -1,7 +1,7 @@
 {
   "product": "LOCKSET",
   "brand": "Nightshift Press",
-  "version": "2026-10-04",
+  "version": "2026-10-05",
   "featured_url": "",
   "affiliate_params": "",
   "mixer_routes": 0,
@@ -10,5 +10,5 @@
   "intents": ["shielded_transfer", "private_message", "network_path", "hardware_keys", "market_rail"],
   "cards_filled": 19,
   "empty_on_purpose": ["featured_url", "affiliate_params"],
-  "refreshed": "2026-10-04"
+  "refreshed": "2026-10-05"
 }
